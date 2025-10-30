@@ -33,7 +33,7 @@ This project has a multi-part architecture, separating the main app, the chatbot
     * **Pandas & LLM** (for data processing)
     * **Pymongo** (for loading data to MongoDB)
 
-## 📁 Data ETL Pipeline
+## 📁 Data ETL Pipeline (My Task)
 
 This project includes a complete ETL (Extract, Transform, Load) pipeline located in the `Data/` folder.
 
