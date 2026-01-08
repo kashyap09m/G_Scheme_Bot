@@ -1,50 +1,66 @@
-# G Scheme Bot 🤖
+# G Scheme Bot – Government Scheme Assistant
 
-G Scheme Bot is a comprehensive web application designed to help Indian citizens find and understand government schemes they are eligible for. It features personalized recommendations, state-wise browsing, and an intelligent offline-first chatbot for answering specific queries.
+🔗 **GitHub Repository:**  
+https://github.com/kashyap09m/G_Scheme_Bot
 
-## ✨ Features
+---
 
-* **Personalized Recommendations:** Users register with their profile (age, profession, state, income, etc.) to get a dashboard of recommended schemes.
-* **Offline RAG Chatbot:** Ask complex questions (e.g., "What schemes are there for a 17-year-old student?") and get answers from an offline RAG pipeline.
-* **Document Checklist:** When viewing a scheme, users see a personalized checklist of which required documents they have and which they are missing.
+## 📌 Project Overview
+**G Scheme Bot** is a full-stack web application designed to simplify access to Indian Government Schemes.  
+It aggregates scheme data from official sources, structures it using an ETL pipeline, and enables users to explore schemes through a modern web interface and an AI-powered chatbot.
 
+The project includes:
+- A **React frontend** for user interaction
+- A **Node.js backend** for APIs and business logic
+- A **FastAPI-based chatbot microservice** using **RAG (Retrieval-Augmented Generation)**
+- A complete **ETL pipeline** to scrape, process, and store scheme data
 
-## 🛠️ Tech Stack & Architecture
+---
 
-This project has a multi-part architecture, separating the main app, the chatbot, and the data pipeline.
+## 🚀 Key Features
+- • Centralized access to **3,500+ government schemes**
+- • Personalized scheme recommendations
+- • AI-powered chatbot for scheme-related queries
+- • Document checklist assistance
 
-* **Frontend :**
-    * **React**
+---
 
-* **Backend :**
-    * **Node.js**
-    * **Mongoose** (for MongoDB)
+## 🧠 Architecture & Tech Stack
 
-* **Chatbot :**
-    * **Python**
-    * **FastAPI** (to serve the RAG API)
-    * **LangChain** (to build the RAG chain)
-    * **Ollama `gemma3:4B`** (for offline LLM generation)
-    * **FAISS** (for offline, in-memory vector storage)
+### Frontend
+- • React
+- • HTML, CSS, JavaScript
 
-* **Data Pipeline (ETL):**
-    * **Python**
-    * **Playwright** (for web scraping)
-    * **Pandas & LLM** (for data processing)
-    * **Pymongo** (for loading data to MongoDB)
+### Backend
+- • Node.js
+- • Mongoose (MongoDB ORM)
 
-## 📁 Data ETL Pipeline (My Task)
+### Chatbot Service
+- • Python
+- • FastAPI
+- • LangChain
+- • FAISS (Vector Store)
+- • Ollama (gemma3:4B – Offline LLM)
 
-This project includes a complete ETL (Extract, Transform, Load) pipeline located in the `Data/` folder.
+### Data Pipeline (ETL)
+- • Python
+- • Playwright (Web Scraping)
+- • Pandas (Data Processing)
+- • googletrans (Optional Translation)
+- • PyMongo (Database Loading)
 
-Its `main.py` script is designed to be run as a single, orchestrated pipeline. It automatically fetches, cleans, processes, and loads all scheme data into the MongoDB database.
+### Database
+- • MongoDB
 
-### Pipeline Workflow
+---
 
-The script executes the following steps in order:
-
-1.  **Extract:** Scrapes raw data (HTML, text) from target websites like `mygov.in` using **Playwright**.
-2.  **Preprocess:** Cleans the raw scraped data, removes junk HTML, and organizes it into a preliminary format using **Pandas**.
-3.  **Document Extract:** Downloads linked documents (like PDFs) and uses **Tika** to extract their text content.
-4.  **Translate:** (If necessary) Any text found in regional languages is translated to English using **googletrans**.
-5.  **Load:** The final, clean data is loaded directly into the **MongoDB** `schemes` collection using **Pymongo**.
+## 📂 Project Structure
+```text
+G_Scheme_Bot/
+│── Chatbot/            # Chatbot
+│── Data/               # ETL pipeline scripts
+│── Frontend/           # React frontend
+│── backend/            # Node.js backend 
+│── README.md
+│── .gitignore
+│── Screenshot 
